@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Források</title>
+<link rel="icon" type="image/x-icon" href="copy.png">
+
+<style> /* -- Weboldal stílus -- */
+@font-face {
+    font-family: 'FS Sinclair';
+    src: url('/FS_Sinclair_Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'FS Sinclair', sans-serif;
+}
+
+    body {
+      background-color: #212121;
+	  color: white;
+    }
+</style>
+  
+<style> /* -- Menü gomb stílus -- */	
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+  position: fixed;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.topnav a:hover {
+  background-color: #347836;
+  color: white;
+}
+
+</style>
+<style> /* -- Nyitható menü stílus -- */
+@font-face {
+    font-family: 'FS Sinclair';
+    src: url('/FS_Sinclair_Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'FS Sinclair', sans-serif;
+}
+
+
+
+.overlay {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0, 0.9);
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+
+.overlay-content {
+  position: relative;
+  top: 25%;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.overlay a:hover, .overlay a:focus {
+  color: #f1f1f1;
+}
+
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+}
+
+@media screen and (max-height: 450px) {
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+  font-size: 40px;
+  top: 15px;
+  right: 35px;
+  }
+}
+</style>
+<style> /* -- Viszza a tetejére Gomb stílus -- */
+
+  #scrollTopBtn {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    display: none;
+    z-index: 999;
+  }
+  #scrollTopBtn:hover {
+    background-color: #347836;
+  }
+</style>
+
+</head>
+<body>
+
+<div class="topnav"> <! -- Menü gomb -- !>
+  <span style="font-size:30px;cursor:pointer" onclick="openNav()"><a class="active">Menü</a></span>
+</div>
+
+<div id="myNav" class="overlay"> <! -- Nyitható menü -- !>
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <div class="overlay-content">
+    <a href="index.html">Főoldal</a>
+	<a href="ip.html">IP Címek</a>
+    <a href="dns.html">DNS</a>
+  </div>
+</div>
+
+<h1 align="center">Források</h1>
+
+<! -- 1. szöveg -- !>
+<div style="display: flex; justify-content: center; align-items: center; flex-direction: column; padding: 20px;">
+
+    <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; max-width: 1200px;">
+
+        <div style="flex: 1; padding-right: 20px; text-align: center;">
+
+            <div style="background-color: #4d4d4d; color: white; padding: 20px; border-radius: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); font-size: 18px; max-width: 500px; margin: 0 auto;">
+                Sok segítség a w3schools oldalról:
+				<a href="https://www.w3schools.com/" style="color: #4CAF50;" onmouseover="this.style.color='#FF5733';"  onmouseout="this.style.color='#4CAF50';">https://www.w3schools.com/</a>
+            </div>
+    </div>
+</div>
+
+<! -- 2. szöveg -- !>
+<div style="display: flex; justify-content: center; align-items: center; flex-direction: column; padding: 20px;">
+
+    <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; max-width: 1200px;">
+
+        <div style="flex: 1; padding-right: 20px; text-align: center;">
+
+            <div style="background-color: #4d4d4d; color: white; padding: 20px; border-radius: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); font-size: 18px; max-width: 500px; margin: 0 auto;">
+                Sok segítség a ChatGPT-től, habár többmint a fele hibás volt:<br>
+				<a href="https://chatgpt.com/" style="color: #4CAF50;" onmouseover="this.style.color='#FF5733';"  onmouseout="this.style.color='#4CAF50';">https://chatgpt.com/</a>
+            </div>
+    </div>
+</div>
+
+<! -- 3. szöveg -- !>
+<div style="display: flex; justify-content: center; align-items: center; flex-direction: column; padding: 20px;">
+
+    <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; max-width: 1200px;">
+
+        <div style="flex: 1; padding-right: 20px; text-align: center;">
+
+            <div style="background-color: #4d4d4d; color: white; padding: 20px; border-radius: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); font-size: 18px; max-width: 500px; margin: 0 auto;">
+                IP címekről a tudás ezekből a videókból:
+            </div>
+    </div>
+</div>
+
+<! -- YouTube beszúrások -- !>
+<p align="center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/5WfiTHiU4x8?si=yAFM6HBhOMatfdHe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/tcae4TSSMo8?si=W4i61VwvCoj7-fED" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/8bhvn9tQk8o?si=DFXEqHHhn87XhdiH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</p>
+
+
+<script> // -- Nyitható menü kód --
+function openNav() {
+  document.getElementById("myNav").style.width = "100%";
+}
+
+function closeNav() {
+  document.getElementById("myNav").style.width = "0%";
+}
+</script>
+
+</body>
+</html>

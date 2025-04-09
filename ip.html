@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>IP Címek</title>
+<link rel="icon" type="image/x-icon" href="ip.png">
+
+<style> /* -- Weboldal stílus -- */
+@font-face {
+    font-family: 'FS Sinclair';
+    src: url('/FS_Sinclair_Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'FS Sinclair', sans-serif;
+}
+
+    body {
+      background-color: #212121;
+	  color: white;
+    }
+</style>
+  
+<style> /* -- Menü gomb stílus -- */	
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+  position: fixed;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.topnav a:hover {
+  background-color: #347836;
+  color: white;
+}
+
+</style>
+<style> /* -- Nyitható menü stílus -- */
+@font-face {
+    font-family: 'FS Sinclair';
+    src: url('/FS_Sinclair_Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'FS Sinclair', sans-serif;
+}
+
+
+
+.overlay {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0, 0.9);
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+
+.overlay-content {
+  position: relative;
+  top: 25%;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.overlay a:hover, .overlay a:focus {
+  color: #f1f1f1;
+}
+
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+}
+
+@media screen and (max-height: 450px) {
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+  font-size: 40px;
+  top: 15px;
+  right: 35px;
+  }
+}
+</style>
+<style> /* -- Viszza a tetejére Gomb stílus -- */
+
+  #scrollTopBtn {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    display: none;
+    z-index: 999;
+  }
+  #scrollTopBtn:hover {
+    background-color: #347836;
+  }
+</style>
+<style> /* -- Kép zoom stílus -- */
+@keyframes zoomIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+#modalImage.animate-zoom {
+    animation: zoomIn 0.3s ease forwards;
+}
+
+#imageModal.fade-out {
+    animation: fadeOut 0.3s ease forwards;
+}
+</style>
+
+
+</head>
+<body>
+
+<div class="topnav"> <! -- Menü gomb -- !>
+  <span style="font-size:30px;cursor:pointer" onclick="openNav()"><a class="active">Menü</a></span>
+</div>
+
+<div id="myNav" class="overlay"> <! -- Nyitható menü -- !>
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <div class="overlay-content">
+    <a href="index.html">Főoldal</a>
+    <a href="dns.html">DNS</a>
+	<a href="forr.html">Források</a>
+  </div>
+</div>
+
+<h1 align="center">Mik azok az IP címek és hogyan működnek?</h1>
+
+<! -- 1. szöveg -- !>
+<div style="display: flex; justify-content: center; align-items: center; flex-direction: column; padding: 20px;">
+
+    <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; max-width: 1200px;">
+
+        <div style="flex: 1; padding-right: 20px; text-align: center;">
+
+            <div style="background-color: #4d4d4d; color: white; padding: 20px; border-radius: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); font-size: 18px; max-width: 500px; margin: 0 auto;">
+                Az IP (Internet Protocol) címek hasonlítanak a telefonszámokhoz, arra szükségesek hogy ezközeink tudjanak kommunikálni egymással és az Internettel.
+            </div>
+        </div>
+		<! -- Kép -- !>
+        <div style="flex: 1;">
+		<img src="iptele.png" class="zoomable-img" height="400px" width="700px" style="border-radius: 20px; transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer;">
+
+        </div>
+    </div>
+</div>
+
+<! -- 2. szöveg -- !>
+<div style="display: flex; justify-content: center; align-items: center; flex-direction: column; padding: 20px;">
+
+    <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; max-width: 1200px;">
+
+        <div style="flex: 1; padding-right: 20px; text-align: center;">
+
+            <div style="background-color: #4d4d4d; color: white; padding: 20px; border-radius: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); font-size: 18px; max-width: 500px; margin: 0 auto;">
+                Egy átlagos otthoni hálozatban mindegyik eszköz IP címe hasonlóan néz ki. Hogy megnézd saját IP címedet (Windows) nyisd meg a Parancssort, és írd be ezt: <u>ipconfig</u> <br>Valami hasonlót fogsz látni. 
+            </div>
+        </div>
+		<! -- Kép -- !>
+        <div style="flex: 1;">
+             <img src="ipcmd.png" class="zoomable-img" height="400px" width="700px" style="border-radius: 20px; transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer;">
+        </div>
+    </div>
+</div>
+
+<! -- 3. szöveg -- !>
+<div style="display: flex; justify-content: center; align-items: center; flex-direction: column; padding: 20px;">
+
+    <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; max-width: 1200px;">
+
+        <div style="flex: 1; padding-right: 20px; text-align: center;">
+
+            <div style="background-color: #4d4d4d; color: white; padding: 20px; border-radius: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); font-size: 18px; max-width: 500px; margin: 0 auto;">
+                Az IPv4 Adderss a saját eszközöd IP címe. <br><br><i>Miért így néz ki?</i><br> Ez a Subnet Mask-nak köszönhető mivel az első három oktett le van fixálva és csak az utolsó változhat 0 és 255 között. Az első 2 oktett privát (vagy helyi) IP címeknél általában mindig 192.168.-al kezdődik. <br><br><i>És mi az a Default Gateway?</i><br> A Default Gateway másnéven a Router osztja ki az eszközöknek az IP címeket. A Router utolsó oktettje általában mindig 1.
+            </div>                               
+        </div>
+		<! -- Kép -- !>
+        <div style="flex: 1;">
+            <img src="ipcmd2.png" class="zoomable-img" height="400px" width="700px" style="border-radius: 20px; transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer;">
+        </div>
+    </div>
+</div>
+
+<! -- 4. szöveg -- !>
+<div style="display: flex; justify-content: center; align-items: center; flex-direction: column; padding: 20px;">
+
+    <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; max-width: 1200px;">
+
+        <div style="flex: 1; padding-right: 20px; text-align: center;">
+
+            <div style="background-color: #4d4d4d; color: white; padding: 20px; border-radius: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); font-size: 18px; max-width: 500px; margin: 0 auto;">
+                Egy átlagos otthoni hálózat a képen látható módon van kialakítva. Ha az Internetet akarjuk elérni akkor szükségünk lesz egy nyilvános IP címre is. Ezt az Internetszolgáltató adja, de nem minden egyes eszköznek a háztartáson belül, hanem csak a Routernek.
+				Ezért az Internetet csakis a Routeren keresztül érhetjük el.
+            </div>                               
+        </div>
+		<! -- Kép -- !>
+        <div style="flex: 1;">
+            <img src="ipnyil.png" class="zoomable-img" height="400px" width="700px" style="border-radius: 20px; transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer;">
+        </div>
+    </div>
+</div>
+
+<! -- 5. szöveg -- !>
+<div style="display: flex; justify-content: center; align-items: center; flex-direction: column; padding: 20px;">
+
+    <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; max-width: 1200px;">
+
+        <div style="flex: 1; padding-right: 20px; text-align: center;">
+
+            <div style="background-color: #4d4d4d; color: white; padding: 20px; border-radius: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); font-size: 18px; max-width: 500px; margin: 0 auto;">
+                <i>Hogyan érem el a Google keresőt?</i><br><br> A számítógép küld egy kérelmet a Router felé hogy te a google.com-ot akarod elérni. A Router nem tudja hol találja Google barátunkat és megkerdezi a DNS-t. A DNS tudja a Google IP címét és átirányít arra. Megérkeztünk a google.com weboldalra. 
+            </div>                               
+        </div>
+		<! -- Kép -- !>
+        <div style="flex: 1;">
+            <img src="internet.gif" class="zoomable-img" height="400px" width="700px" style="border-radius: 20px; transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer;">
+        </div>
+    </div>
+</div>
+
+<! -- 6. szöveg -- !>
+<div style="display: flex; justify-content: center; align-items: center; flex-direction: column; padding: 20px;">
+
+    <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; max-width: 1200px;">
+
+        <div style="flex: 1; padding-right: 20px; text-align: center;">
+
+            <div style="background-color: #4d4d4d; color: white; padding: 20px; border-radius: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); font-size: 18px; max-width: 500px; margin: 0 auto;">
+                <i>Érdekesség:</i><br> Az iskola helyi hálózati kiépítése valószínűleg a következő.<br><br>
+				Ahelyett hogy több 100 gépet 1 Routerbe kapcsolánk úgynevezett Switch-ek segítségével kapcsoljuk össze a gépeket, szervereket, Wi-Fi erősítőket az iskola egyes pontjain. Ezeket a Switch-eket láthatod a folyósókon a falra rögzítve, vagy egyes termekben.
+            </div>                               
+        </div>
+		<! -- Kép -- !>
+        <div style="flex: 1;">
+            <img src="suli.png" class="zoomable-img" height="400px" width="700px" style="border-radius: 20px; transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer;">
+        </div>
+    </div>
+</div>
+
+
+
+<h1 align="center">Összefoglalva<h1>
+
+<! -- 7. szöveg -- !>
+<div style="display: flex; justify-content: center; align-items: center; flex-direction: column; padding: 20px;">
+
+    <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; max-width: 1200px;">
+
+        <div style="flex: 1; padding-right: 20px; text-align: center;">
+
+            <div style="background-color: #4d4d4d; color: white; padding: 20px; border-radius: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); font-size: 18px; max-width: 500px; margin: 0 auto;">
+                - Az IP címek segítségével kommunikálnak az eszközeink.<br>
+				- Vannak privát/helyi IP címek és nyilvánosak is.<br>
+				- Nyilvános IP címek szükségesek az Internet eléréséhez.<br>
+				- Háztartásonként 1 nyilvános IP cím áll rendelkezésre a Routeren keresztül.<br>
+				- A Router feladata hogy a Helyi Hálózaton lévő eszközöket az Internettel öszekapcsolja.<br>
+            </div>                               
+    </div>
+</div>
+
+
+<script> // -- Nyitható menü kód --
+
+function openNav() {
+  document.getElementById("myNav").style.width = "100%";
+}
+
+function closeNav() {
+  document.getElementById("myNav").style.width = "0%";
+}
+</script>
+
+<! -- Kép animáció -- !>
+<div id="imageModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+     background-color: rgba(0, 0, 0, 0.8); z-index: 1000; justify-content: center; align-items: center;">
+    
+    <div style="position: relative; max-width: 90%; max-height: 90%;">
+        <img id="modalImage" src="" style="max-width: 100%; max-height: 100%; border-radius: 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.6);">
+        <button onclick="closeModal()" 
+                style="position: absolute; top: -15px; right: -15px; background-color: white; border: none; 
+                       font-size: 24px; border-radius: 50%; width: 40px; height: 40px; cursor: pointer; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
+            ×
+        </button>
+    </div>
+</div>
+
+<! -- Kép Animáció kód -- !>
+<script> // -- Kép Animáció kód --
+const zoomableImgs = document.querySelectorAll('.zoomable-img');
+const modal = document.getElementById('imageModal');
+const modalImg = document.getElementById('modalImage');
+
+zoomableImgs.forEach(img => {
+    img.addEventListener('mouseover', () => {
+        img.style.transform = 'scale(1.05)';
+        img.style.boxShadow = '0 8px 20px rgba(0,0,0,0.3)';
+    });
+    img.addEventListener('mouseout', () => {
+        img.style.transform = 'scale(1)';
+        img.style.boxShadow = 'none';
+    });
+    img.addEventListener('click', () => {
+        modalImg.src = img.src;
+        modal.style.display = 'flex';
+        modalImg.classList.remove('animate-zoom');
+        void modalImg.offsetWidth;
+        modalImg.classList.add('animate-zoom');
+        modal.classList.remove('fade-out');
+    });
+});
+zoomableImg.addEventListener('mouseover', () => {
+    zoomableImg.style.transform = 'scale(1.05)';
+    zoomableImg.style.boxShadow = '0 8px 20px rgba(0,0,0,0.3)';
+});
+zoomableImg.addEventListener('mouseout', () => {
+    zoomableImg.style.transform = 'scale(1)';
+    zoomableImg.style.boxShadow = 'none';
+});
+
+zoomableImg.addEventListener('click', () => {
+    modalImg.src = zoomableImg.src;
+    modal.style.display = 'flex';
+
+
+    modalImg.classList.remove('animate-zoom');
+    void modalImg.offsetWidth;
+    modalImg.classList.add('animate-zoom');
+
+
+    modal.classList.remove('fade-out');
+});
+
+function closeModal() {
+    modal.classList.add('fade-out');
+    setTimeout(() => {
+        modal.style.display = 'none';
+        modal.classList.remove('fade-out');
+    }, 300); 
+}
+
+
+modal.addEventListener('click', (e) => {
+    if (!modalContent.contains(e.target)) {
+        closeModal();
+    }
+});
+</script>
+
+
+<! -- Viszza a tetejére Gomb -- !>
+<button id="scrollTopBtn" onclick="scrollToTop()">Vissza a tetejére</button>
+
+<script>// -- Viszza a tetejére Gomb Kód --
+  window.onscroll = function() {
+    const btn = document.getElementById("scrollTopBtn");
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+      btn.style.display = "block";
+    } else {
+      btn.style.display = "none";
+    }
+  };
+
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+
+</body>
+</html>
